@@ -1,5 +1,6 @@
 import discord
 from sendDiscordNotification import sendDiscordMessage
+from compliments import sendCompliment
 
 # Define los intentos necesarios
 intents = discord.Intents.default()
@@ -10,23 +11,18 @@ intents.presences = False
 client = discord.Client(intents=intents)
 
 # Canal específico donde quieres detectar mensajes (reemplaza con el ID de tu canal)
-canal_id = 1153587296851988568  # PRUEBAS
-# canal_id = 982690448780963860  # TX DISCORD
-
-
-@client.event
-async def on_ready():
-    if (canal_id == 1153587296851988568):
-        print(f'Bot conectado como {client.user.name} en modo PRUEBA')
-    else:
-        print(f'Bot conectado como {client.user.name} en modo EJECUCIÓN')
-
+IDS = {
+    "PRUEBAS": 1153587296851988568,
+    "VOTACION": 982690448780963860,
+    "CUMPLIDOS": 1160260868756480141
+}
 
 @client.event
 async def on_message(message):
-    if message.channel.id == canal_id and message.author.id != client.user.id:
-        await sendDiscordMessage(message)
-
+    if  message.author.id != client.user.id:
+        if message.channel.id == IDS["VOTACION"]: await sendDiscordMessage(message)
+        if message.channel.id == IDS["PRUEBAS"]: await sendCompliment(message)
+    
 
 # Inicia el bot con su token de acceso
 client.run(
