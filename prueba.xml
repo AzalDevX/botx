@@ -1,0 +1,22 @@
+<Message id=1160517324479143966 
+channel=<TextChannel 
+        id=1153587296851988568 
+        name='general' 
+        position=5 
+        nsfw=False 
+        news=False 
+        category_id=None>
+type=<MessageType.default: 0>
+author=<Member 
+        id=687261953416232964 
+        name='arkaitz_' 
+        global_name='SimTu:monkey_face:' 
+        bot=False 
+        nick=None 
+        guild=<Guild 
+                id=1153587296415793203 
+                name='BoTX' 
+                shard_id=0 
+                chunked=False 
+                member_count=6>>
+flags=<MessageFlags value=0>>

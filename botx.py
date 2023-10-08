@@ -18,7 +18,16 @@ IDS = {
 }
 
 @client.event
+async def on_ready():
+    print("Listo:")
+
+
+@client.event
 async def on_message(message):
+    print(message.content)
+    print(message.author)
+    print(message.attachments)
+
     if  message.author.id != client.user.id:
         if message.channel.id == IDS["VOTACION"]: await sendDiscordMessage(message)
         if message.channel.id == IDS["PRUEBAS"]: await sendCompliment(message)
