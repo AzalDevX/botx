@@ -1,5 +1,13 @@
 import discord
 from sendDiscordNotification import sendDiscordMessage
+import os
+from dotenv import load_dotenv
+
+# Carga las variables de entorno desde el archivo .env
+load_dotenv()
+
+# Accede a las variables de entorno
+api_key = os.getenv("API_KEY")
 
 # Define los intentos necesarios
 intents = discord.Intents.default()
@@ -29,5 +37,4 @@ async def on_message(message):
 
 
 # Inicia el bot con su token de acceso
-client.run(
-    'MTE1OTkxODQwNDUzMTEzODY1MQ.GTooPZ.Qor16zjyDVDNSlg_FNKhwAP4anmXxP14p0g3Tk')
+client.run(api_key)
