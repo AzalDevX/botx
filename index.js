@@ -3,7 +3,7 @@ const { client, api_key } = require('./globals/config');
 // const { messageCreate } = require('./events/messageCreate');
 const { log } = require('./globals/utilities');
 // const { run: readyRun } = require('./events/ready');
-// const { run: readyRunSlash } = require('./events/slashCommands');s
+// const { run: readyRunSlash } = require('./events/slashCommands');
 
 require("./handler/hEvents")(client)
 require("./handler/hSlash")(client, api_key) 

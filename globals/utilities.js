@@ -1,5 +1,9 @@
 // utilities.js
 const path = require('path');
+const dotenv = require('dotenv');
+
+
+const env = process.env.NODE_ENV==="development" ? "D" : "P";
 
 async function log(...args) {
     const date = new Date();
@@ -8,8 +12,8 @@ async function log(...args) {
     const actualTime = date.toLocaleTimeString('es-ES', options); // hh:mm:ss
 
     const callingModule = getCallingModuleName();
-
-    let formattedArgs;
+ 
+    let formattedArgs; 
 
     if (args.length === 1 && typeof args[0] === 'string') {
         formattedArgs = args[0];
@@ -17,7 +21,7 @@ async function log(...args) {
         formattedArgs = args.map(arg => `${arg[0]}: ${arg[1]}`).join(' | ');
     }
 
-    console.log(`[${callingModule}] - ${actualTime} | ${formattedArgs}`);
+    console.log(`${env} ~ [${callingModule}] - ${actualTime} | ${formattedArgs}`);
 }
 
 function getCallingModuleName() {
