@@ -4,27 +4,26 @@ module.exports = {
     name: 'simio',
     description: 'Replies with Simio!',
     run: async (client, interaction) => {
-        // Obtener la imagen desde la URL
-        const imageUrl = 'https://www.placemonkeys.com/300/175?random';
+        const height = 300;
+        const width = 175;
 
+        const imageUrl = `https://www.placemonkeys.com/${height}/${width}?random`;
+
+        
         try {
             const response = await fetch(imageUrl);
             const arrayBuffer = await response.arrayBuffer();
             const imageBuffer = Buffer.from(arrayBuffer);
 
-            // Enviar la imagen como mensaje
             await interaction.followUp({
-                content: 'Aquí está la imagen:',
+                // content: 'Aquí está la imagen:',
                 files: [{
                     attachment: imageBuffer,
-                    name: 'simio_image.webp',
+                    name: 'simio.webp',
                 }],
             });
-
-            log('Imagen enviada correctamente.');
         } catch (error) {
-            console.error('Error al obtener la imagen:', error);
-            interaction.followUp({ content: '¡Hubo un error al obtener la imagen!' });
+            interaction.followUp({ content: 'Hubo un error al obtener la imagen :(' });
         }
     }
 }
