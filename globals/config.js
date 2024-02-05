@@ -2,7 +2,7 @@
 const Discord = require('discord.js');
 const dotenv = require('dotenv');
 
-dotenv.config();
+dotenv.config({path:process.env.NODE_ENV==="development" ? ".env.test" : ".env"});
 
 const api_key = process.env.API_KEY;
 
