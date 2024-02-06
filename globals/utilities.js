@@ -2,7 +2,10 @@
 const path = require('path');
 const dotenv = require('dotenv');
 
+let list_of_insults = {};
+
 const env = process.env.NODE_ENV === "development" ? "D" : "P";
+
 
 async function log(...args) {
     function warning() { }
@@ -40,4 +43,4 @@ function getCallingModuleName() {
     return 'unknown';
 }
 
-module.exports = { log, getCallingModuleName };
+module.exports = { log, getCallingModuleName , list_of_insults};
